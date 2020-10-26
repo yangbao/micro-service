@@ -1,0 +1,3 @@
+FROM python:3.6.12
+MAINTAINER paul.yang@github.com
+RUN pip install thrift

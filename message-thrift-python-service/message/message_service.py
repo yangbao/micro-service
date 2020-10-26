@@ -25,7 +25,7 @@ class MessageServiceHandler:
         messageObj['To'] = email
         messageObj['Subject'] = Header('慕课网邮件', 'utf-8')
         try:
-            smtpObj = smtplib.SMTP('smpt.163.com')
+            smtpObj = smtplib.SMTP('smtp.163.com')
             smtpObj.login(sender, authCode)
             smtpObj.sendmail(sender, [email], messageObj.as_string())
             print ("send mail success")
@@ -38,7 +38,8 @@ class MessageServiceHandler:
 if __name__ == '__main__':
     handler = MessageServiceHandler()
     processor = MessageService.Processor(handler)
-    transport = TSocket.TServerSocket("127.0.0.1", "9090")
+    # none 监听所有的地址
+    transport = TSocket.TServerSocket(None, "9090")
     # transport = TSocket.TServerSocket(None, "9090")
     tfactory = TTransport.TFramedTransportFactory()
     pfactory = TBinaryProtocol.TBinaryProtocolFactory()
