@@ -8,3 +8,4 @@
 /user-edge-service-client/target/
 /user-thrift-service/target/
 /user-thrift-service-api/target/
+/.idea/
